@@ -49,9 +49,9 @@ export function Header() {
       variants={fadeIn}
       transition={{ ...defaultTransition, duration: 0.8 }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 transition-colors duration-500",
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-sm"
+          ? "bg-background border-b border-border"
           : "bg-transparent"
       )}
     >
@@ -60,42 +60,38 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex flex-col hover:opacity-80 transition-opacity"
+            className="flex flex-col hover:opacity-70 transition-opacity"
           >
-            <span className="font-heading text-3xl tracking-[0.1em] uppercase font-semibold text-foreground">
+            <span className="font-heading text-2xl tracking-[0.2em] uppercase font-semibold text-foreground">
               АРКА
             </span>
-            <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">
+            <span className="text-[9px] tracking-[0.3em] uppercase text-muted-foreground mt-0.5">
               дизайн-студия
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav aria-label="Основная навигация" className="hidden lg:flex items-center gap-1">
+          <nav aria-label="Основная навигация" className="hidden lg:flex items-center gap-8">
             {mainNavigation.map((item) => (
               <div key={item.label} className="relative group">
                 <Link
                   href={item.href}
                   className={cn(
-                    "px-4 py-2 text-sm tracking-wide uppercase",
-                    "text-muted-foreground hover:text-foreground",
-                    "transition-colors duration-300",
-                    "relative after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2",
-                    "after:h-px after:w-0 after:bg-foreground",
-                    "after:transition-all after:duration-300",
-                    "hover:after:w-full"
+                    "text-xs tracking-[0.15em] uppercase",
+                    "text-foreground/70 hover:text-foreground",
+                    "transition-colors duration-300"
                   )}
                 >
                   {item.label}
                 </Link>
                 {item.children && (
                   <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <div className="bg-background border border-border flex flex-col min-w-[280px] shadow-lg py-2">
+                    <div className="bg-background border border-border flex flex-col min-w-[240px] py-4">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="px-6 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors uppercase tracking-wide"
+                          className="px-6 py-2 text-xs text-foreground/70 hover:text-foreground transition-colors uppercase tracking-[0.15em]"
                         >
                           {child.label}
                         </Link>
@@ -124,30 +120,30 @@ export function Header() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="w-full sm:max-w-md border-l border-border"
+                className="w-full sm:max-w-md border-l border-border bg-background"
               >
                 <SheetHeader>
-                  <SheetTitle className="flex flex-col items-center justify-center">
-                    <span className="font-heading text-3xl tracking-[0.1em] uppercase text-foreground">
+                  <SheetTitle className="flex flex-col items-center justify-center pt-10">
+                    <span className="font-heading text-2xl tracking-[0.2em] uppercase text-foreground">
                       АРКА
                     </span>
-                    <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">
+                    <span className="text-[9px] tracking-[0.3em] uppercase text-muted-foreground mt-1">
                       дизайн-студия
                     </span>
                   </SheetTitle>
                 </SheetHeader>
-                <nav aria-label="Мобильная навигация" className="flex flex-col gap-1 mt-8 px-4">
+                <nav aria-label="Мобильная навигация" className="flex flex-col gap-0 mt-12 px-6">
                   {mainNavigation.map((item, index) => (
                     <div key={item.label}>
                       {item.children ? (
-                        <div className="py-3 px-4 text-lg tracking-wide text-foreground border-b border-border/50">
+                        <div className="py-4 text-xs uppercase tracking-[0.15em] text-foreground border-b border-border">
                           <span className="opacity-50">{item.label}</span>
-                          <div className="flex flex-col gap-2 mt-3 ml-4">
+                          <div className="flex flex-col gap-4 mt-4 ml-4">
                             {item.children.map((child) => (
                               <SheetClose asChild key={child.label}>
                                 <Link
                                   href={child.href}
-                                  className="text-base text-muted-foreground hover:text-foreground transition-colors"
+                                  className="text-xs text-foreground/70 hover:text-foreground transition-colors"
                                 >
                                   {child.label}
                                 </Link>
@@ -160,10 +156,10 @@ export function Header() {
                           <Link
                             href={item.href}
                             className={cn(
-                              "block py-3 px-4 text-lg tracking-wide",
-                              "text-muted-foreground hover:text-foreground",
+                              "block py-5 text-xs uppercase tracking-[0.15em]",
+                              "text-foreground/70 hover:text-foreground",
                               "transition-colors duration-300",
-                              "border-b border-border/50"
+                              "border-b border-border"
                             )}
                           >
                             {item.label}

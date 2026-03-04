@@ -1,92 +1,67 @@
 "use client"
 
-import Link from "next/link"
-import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
+import { fadeIn, defaultTransition } from "@/lib/animations"
 
 export function StrictPackages() {
     const packages = [
         {
             title: "Концепция + планировка",
             price: "от 15 000 ₽",
-            list: [
-                "Планировочное решение",
-                "Цветовая палитра",
-                "Стилистическое направление",
-                "Схемы инженерных систем",
-                "Базовые рабочие чертежи"
-            ],
-            button: "Заказать концепцию"
+            list: "Планировочное решение, Цветовая палитра, Стилистическое направление, Схемы инженерных систем, Базовые рабочие чертежи",
         },
         {
             title: "Полный дизайн-проект",
             price: "от 90 000 ₽",
-            list: [
-                "Всё из «Концепция + планировка»",
-                "3D-визуализация",
-                "Полный комплект рабочих чертежей",
-                "Ведомость отделочных материалов",
-                "Спецификация мебели и материалов"
-            ],
-            button: "Заказать проект"
+            list: "Концепция + планировка, 3D-визуализация, Полный комплект рабочих чертежей, Ведомость отделочных материалов, Спецификация мебели и материалов",
         },
         {
             title: "Полный цикл",
-            price: "от 90 000 ₽ + 30 000 ₽/мес",
-            list: [
-                "Полный дизайн-проект",
-                "Авторский надзор",
-                "Комплектация",
-                "Закупка мебели и материалов",
-                "Координация подрядчиков"
-            ],
-            button: "Обсудить проект"
+            price: "от 120 000 ₽",
+            list: "Полный дизайн-проект, Авторский надзор, Комплектация, Закупка мебели и материалов, Координация подрядчиков",
         }
     ]
 
     return (
-        <section id="packages" className="py-24 md:py-32 bg-white border-t border-border/40">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="font-heading text-4xl md:text-5xl uppercase tracking-wider text-foreground mb-16 text-center">
-                    Пакеты услуг
-                </h2>
+        <section id="packages" className="py-24 md:py-40 bg-background">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.h2
+                    initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
+                    variants={fadeIn} transition={defaultTransition}
+                    className="font-heading text-4xl md:text-6xl lg:text-7xl uppercase tracking-widest text-foreground mb-16 md:mb-32"
+                >
+                    Услуги<br />
+                    <span className="text-muted-foreground">и цены</span>
+                </motion.h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="flex flex-col border-t border-border">
                     {packages.map((pkg, i) => (
-                        <div
+                        <motion.div
                             key={i}
-                            className={cn(
-                                "flex flex-col p-8 lg:p-12 border border-border/50 bg-white/50 backdrop-blur-sm rounded-none",
-                                "transition-all duration-300 ease-in-out",
-                                "hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg cursor-default"
-                            )}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ ...defaultTransition, delay: i * 0.1 }}
+                            className="group flex flex-col md:flex-row py-8 md:py-12 border-b border-border hover:bg-muted/10 transition-colors duration-500"
                         >
-                            <h3 className="font-heading text-2xl uppercase tracking-wide mb-4 text-foreground">
-                                {pkg.title}
-                            </h3>
-                            <p className="text-xl font-medium text-primary mb-8 pb-8 border-b border-border/50">
-                                {pkg.price}
-                            </p>
+                            <div className="md:w-1/3 mb-4 md:mb-0">
+                                <h3 className="text-xs md:text-sm uppercase tracking-[0.2em] text-foreground font-medium">
+                                    {pkg.title}
+                                </h3>
+                            </div>
 
-                            <ul className="flex-1 space-y-4 mb-12">
-                                {pkg.list.map((item, j) => (
-                                    <li key={j} className="text-muted-foreground flex items-start">
-                                        <span className="mr-3 text-primary/50 text-sm mt-1">■</span>
-                                        <span className="leading-relaxed">{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                            <div className="md:w-1/2 md:pr-12 mb-6 md:mb-0">
+                                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed tracking-wide">
+                                    {pkg.list}
+                                </p>
+                            </div>
 
-                            <Link
-                                href="#contacts"
-                                className={cn(
-                                    "inline-flex items-center justify-center w-full py-4 px-6",
-                                    "border border-foreground text-foreground uppercase tracking-wider text-sm font-medium",
-                                    "transition-colors duration-300 hover:bg-foreground hover:text-background"
-                                )}
-                            >
-                                {pkg.button}
-                            </Link>
-                        </div>
+                            <div className="md:w-1/6 md:text-right">
+                                <span className="text-xs md:text-sm uppercase tracking-widest text-foreground">
+                                    {pkg.price}
+                                </span>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

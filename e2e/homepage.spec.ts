@@ -105,10 +105,11 @@ test.describe("Homepage — V2 Strict Redesign", () => {
   test("Footer: contains only legal links and copyright", async ({ page }) => {
     const footer = page.locator("footer");
     await expect(footer).toBeVisible();
-    await expect(footer).toContainText("© АРКА");
+    await expect(footer).toContainText("©");
+    await expect(footer).toContainText("АРКА Студия");
     await expect(footer).toContainText("Политика конфиденциальности");
-    await expect(footer).toContainText("Пользовательское соглашение");
-    await expect(footer).toContainText("Обработка персональных данных");
+    await expect(footer).toContainText("Соглашение");
+    await expect(footer).toContainText("Персональные данные");
   });
 
   // ─── FORBIDDEN CONTENT ────────────────────────────────────
