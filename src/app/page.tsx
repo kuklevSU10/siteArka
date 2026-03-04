@@ -4,13 +4,10 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { USPStrip } from "@/components/sections/usp-strip";
-import { ProjectsGallery } from "@/components/sections/projects-gallery";
 import { PackagesGrid } from "@/components/sections/packages-grid";
-import { ProcessPreview } from "@/components/sections/process-preview";
 import { TestimonialsCarousel } from "@/components/sections/testimonials-carousel";
 import { FAQAccordion } from "@/components/sections/faq-accordion";
 import { CTASection } from "@/components/sections/cta-section";
-import { featuredProjects } from "@/data/projects";
 import { testimonials } from "@/data/testimonials";
 import { b2cPackages } from "../../content/packages/b2c";
 import { faqItems } from "../../content/faq/index";
@@ -98,14 +95,7 @@ export default function Home() {
         {/* 2. USP Strip */}
         <USPStrip items={uspItems} />
 
-        {/* 3. Featured Projects Gallery */}
-        <ProjectsGallery
-          title="Избранные проекты"
-          description="Каждый проект — это история о пространстве, людях и деталях"
-          projects={featuredProjects}
-        />
-
-        {/* 4. Packages Overview */}
+        {/* 3. Packages Overview */}
         <PackagesGrid
           title="Пакеты услуг"
           description="Выберите подходящий формат работы — от легкого первого шага до полного цикла под ключ. Поэтапная оплата — платите за результат. Стоимость концепции засчитывается в полный проект."
@@ -114,10 +104,7 @@ export default function Home() {
           className="bg-muted/30"
         />
 
-        {/* 5. Process Preview */}
-        <ProcessPreview />
-
-        {/* 6. Testimonials Carousel */}
+        {/* 4. Testimonials Carousel */}
         <TestimonialsCarousel
           title="Отзывы клиентов"
           description="Что говорят те, кто уже доверил нам свое пространство"
@@ -125,14 +112,14 @@ export default function Home() {
           className="bg-muted/30"
         />
 
-        {/* 7. FAQ Preview */}
+        {/* 5. FAQ Preview */}
         <FAQAccordion
           title="Частые вопросы"
           description="Ответы на самые популярные вопросы о наших услугах"
           items={topFaqs}
         />
 
-        {/* 8. CTA Section */}
+        {/* 6. CTA Section */}
         <CTASection
           title="Готовы начать проект?"
           description="Расскажите о вашем пространстве, и мы предложим оптимальный формат работы. Первая консультация — бесплатно. Сроки зафиксированы в договоре, работаем по всей России."

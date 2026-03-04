@@ -1,0 +1,71 @@
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+Image with src "/images/photo_main.jpg" is using quality "80" which is not configured in images.qualities [75]. Please update your config to [75, 80].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+Image with src "/images/photo_main.jpg" is using quality "80" which is not configured in images.qualities [75]. Please update your config to [75, 80].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'E:\System Volume Information'
+⨯ ./src/components/sections/lead-form.tsx:4:1
+Module not found: Can't resolve 'react-hook-form'
+  2 |
+  3 | import { useState, useEffect, useRef } from "react";
+> 4 | import { useForm, Controller } from "react-hook-form";
+    | ^
+  5 | import { zodResolver } from "@hookform/resolvers/zod";
+  6 | import { CheckCircle2, AlertCircle, Loader2, Send } from "lucide-react";
+  7 |
+
+https://nextjs.org/docs/messages/module-not-found
+⨯ ./src/components/sections/lead-form.tsx:4:1
+Module not found: Can't resolve 'react-hook-form'
+  2 |
+  3 | import { useState, useEffect, useRef } from "react";
+> 4 | import { useForm, Controller } from "react-hook-form";
+    | ^
+  5 | import { zodResolver } from "@hookform/resolvers/zod";
+  6 | import { CheckCircle2, AlertCircle, Loader2, Send } from "lucide-react";
+  7 |
+
+https://nextjs.org/docs/messages/module-not-found
+⨯ ./src/components/sections/lead-form.tsx:4:1
+Module not found: Can't resolve 'react-hook-form'
+  2 |
+  3 | import { useState, useEffect, useRef } from "react";
+> 4 | import { useForm, Controller } from "react-hook-form";
+    | ^
+  5 | import { zodResolver } from "@hookform/resolvers/zod";
+  6 | import { CheckCircle2, AlertCircle, Loader2, Send } from "lucide-react";
+  7 |
+
+https://nextjs.org/docs/messages/module-not-found
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'E:\System Volume Information'
+⨯ ./src/components/sections/lead-form.tsx:4:1
+Module not found: Can't resolve 'react-hook-form'
+  2 |
+  3 | import { useState, useEffect, useRef } from "react";
+> 4 | import { useForm, Controller } from "react-hook-form";
+    | ^
+  5 | import { zodResolver } from "@hookform/resolvers/zod";
+  6 | import { CheckCircle2, AlertCircle, Loader2, Send } from "lucide-react";
+  7 |
+
+https://nextjs.org/docs/messages/module-not-found
+Watchpack Error (initial scan): Error: EINVAL: invalid argument, lstat 'E:\System Volume Information'
+⨯ ./src/components/sections/lead-form.tsx:4:1
+Module not found: Can't resolve 'react-hook-form'
+  2 |
+  3 | import { useState, useEffect, useRef } from "react";
+> 4 | import { useForm, Controller } from "react-hook-form";
+    | ^
+  5 | import { zodResolver } from "@hookform/resolvers/zod";
+  6 | import { CheckCircle2, AlertCircle, Loader2, Send } from "lucide-react";
+  7 |
+
+https://nextjs.org/docs/messages/module-not-found
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\System Volume Information'
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\System Volume Information'
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\System Volume Information'
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\System Volume Information'
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\System Volume Information'
+Watchpack Error (stats): Error: EINVAL: invalid argument, lstat 'E:\System Volume Information'
+^C^C

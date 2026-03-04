@@ -1,0 +1,51 @@
+{
+  "agents": {
+    "defaults": {
+      "contextTokens": 200000,
+      "timeoutSeconds": 600,
+      "model": {
+        "primary": "openrouter/anthropic/claude-sonnet-4-5"
+      },
+      "workspace": "/workspace"
+    }
+  },
+  "channels": {
+    "telegram": {
+      "allowFrom": [
+        "1843383437"
+      ],
+      "enabled": true,
+      "dmPolicy": "allowlist",
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
+      "streaming": "partial"
+    }
+  },
+  "models": {
+    "providers": {
+      "openrouter": {
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "apiKey": "${OPENROUTER_API_KEY}",
+        "api": "openai-responses",
+        "models": [
+          {
+            "id": "anthropic/claude-sonnet-4-5",
+            "maxTokens": 8096,
+            "input": [
+              "text",
+              "image"
+            ],
+            "name": "Claude Sonnet",
+            "contextWindow": 200000
+          }
+        ]
+      }
+    }
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.2.26"
+  },
+  "gateway": {
+    "bind": "lan",
+    "mode": "local"
+  }
+}

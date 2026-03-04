@@ -46,6 +46,7 @@ export function Footer() {
     threshold: 0.1,
   })
 
+  // Set the current year or use a static year
   const currentYear = new Date().getFullYear()
 
   return (
@@ -64,144 +65,100 @@ export function Footer() {
           transition={defaultTransition}
           className="py-16 md:py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12"
         >
-          {/* Logo and tagline */}
+          {/* Logo and Contact info */}
           <motion.div
             variants={fadeInUp}
             transition={defaultTransition}
-            className="lg:col-span-4"
+            className="lg:col-span-12"
           >
-            <Link
-              href="/"
-              className="font-heading text-xl tracking-[0.2em] uppercase font-semibold text-foreground"
-            >
-              Interior Studio
-            </Link>
-            <p className="mt-4 text-muted-foreground text-sm leading-relaxed max-w-xs">
-              Создаём интерьеры, которые работают. Инженерный подход к каждому проекту.
-            </p>
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+              <div>
+                <Link
+                  href="/"
+                  className="font-heading text-3xl tracking-[0.1em] uppercase font-semibold text-primary"
+                >
+                  ARKA
+                </Link>
+                <div className="mt-4 flex flex-col gap-2">
+                  <a
+                    href="tel:+7XXXXXXXXXX"
+                    className="text-sm text-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    +7 (XXX) XXX-XX-XX
+                  </a>
+                  <a
+                    href="mailto:hello@arkastudio.test"
+                    className="text-sm text-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    hello@arkastudio.test
+                  </a>
+                </div>
+              </div>
 
-            {/* Phone number */}
-            <a
-              href="tel:+7XXXXXXXXXX"
-              className="mt-4 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
-            >
-              <Phone className="size-4" />
-              +7 (XXX) XXX-XX-XX
-            </a>
-
-            {/* Social links */}
-            <div className="flex items-center gap-4 mt-6">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300"
-                aria-label="Instagram"
-              >
-                <Instagram className="size-5" />
-              </a>
-              <a
-                href="https://pinterest.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300"
-                aria-label="Pinterest"
-              >
-                <PinterestIcon className="size-5" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="size-5" />
-              </a>
+              {/* Social links */}
+              <div className="flex flex-col gap-4">
+                <span className="text-sm font-medium uppercase tracking-wider text-muted-foreground hidden md:block">
+                  Следите за нами
+                </span>
+                <div className="flex items-center gap-6">
+                  <a
+                    href="https://t.me"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+                    aria-label="Telegram"
+                  >
+                    Telegram
+                  </a>
+                  <a
+                    href="https://whatsapp.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+                    aria-label="WhatsApp"
+                  >
+                    WhatsApp
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
+                    aria-label="Instagram"
+                  >
+                    Instagram
+                  </a>
+                </div>
+              </div>
             </div>
           </motion.div>
-
-          {/* Navigation columns */}
-          {Object.entries(footerNavigation).map(([key, items]) => (
-            <motion.div
-              key={key}
-              variants={fadeInUp}
-              transition={defaultTransition}
-              className="lg:col-span-2"
-            >
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-4">
-                {sectionTitles[key] || key.charAt(0).toUpperCase() + key.slice(1)}
-              </h3>
-              <ul className="space-y-3">
-                {items.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Newsletter */}
-        <motion.div
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeInUp}
-          transition={{ ...defaultTransition, delay: 0.3 }}
-          className="py-8 border-t border-border"
-        >
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-                Подпишитесь на рассылку
-              </h3>
-              <p className="text-sm text-muted-foreground mt-1">
-                Вдохновение, кейсы и новости студии — раз в две недели.
-              </p>
-            </div>
-            <form
-              className="flex w-full sm:w-auto gap-2"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <Input
-                type="email"
-                placeholder="Ваш email"
-                className="w-full sm:w-64"
-                aria-label="Email адрес"
-              />
-              <Button type="submit" size="default">
-                <ArrowRight className="size-4" />
-                <span className="sr-only">Подписаться</span>
-              </Button>
-            </form>
-          </div>
         </motion.div>
 
         <Separator />
 
-        {/* Copyright */}
-        <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
-            &copy; {currentYear} Interior Studio. Все права защищены.
+        {/* Copyright and Legal Links */}
+        <div className="py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-sm text-muted-foreground">
+            &copy; АРКА
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
             <Link
               href="/privacy"
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Политика конфиденциальности
             </Link>
             <Link
               href="/terms"
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Пользовательское соглашение
+            </Link>
+            <Link
+              href="/personal-data"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Обработка персональных данных
             </Link>
           </div>
         </div>

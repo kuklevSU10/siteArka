@@ -59,9 +59,9 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-heading text-xl tracking-[0.2em] uppercase font-semibold text-foreground hover:opacity-80 transition-opacity"
+            className="font-heading text-3xl tracking-[0.1em] uppercase font-semibold text-primary hover:opacity-80 transition-opacity"
           >
-            Interior Studio
+            ARKA
           </Link>
 
           {/* Desktop Navigation */}
@@ -151,8 +151,8 @@ export function Header() {
                 className="w-full sm:max-w-md border-l border-border"
               >
                 <SheetHeader>
-                  <SheetTitle className="font-heading text-lg tracking-[0.2em] uppercase">
-                    Interior Studio
+                  <SheetTitle className="font-heading text-3xl tracking-[0.1em] uppercase text-primary">
+                    ARKA
                   </SheetTitle>
                 </SheetHeader>
                 <nav aria-label="Мобильная навигация" className="flex flex-col gap-1 mt-8 px-4">

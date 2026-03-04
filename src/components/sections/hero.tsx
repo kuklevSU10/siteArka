@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { trackCtaClick } from "@/lib/analytics";
@@ -38,6 +38,9 @@ export function Hero({
   trustHints = ["5 этапов", "3 контрольные точки", "0 сюрпризов"],
   className,
 }: HeroProps) {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, 300]);
+
   return (
     <section
       className={cn(
@@ -46,7 +49,7 @@ export function Hero({
       )}
     >
       {/* Background image */}
-      <div className="absolute inset-0">
+      <motion.div className="absolute inset-0" style={{ y }}>
         <Image
           src={backgroundImage}
           alt="Интерьер, спроектированный студией Interior Studio"
@@ -58,7 +61,7 @@ export function Hero({
         />
         {/* Dark gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-      </div>
+      </motion.div>
 
       {/* Content */}
       <motion.div

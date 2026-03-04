@@ -3,6 +3,7 @@ import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { Providers } from "@/providers";
 import { siteConfig } from "@/config/site";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
+import { CustomCursor } from "@/components/ui/custom-cursor";
 import "./globals.css";
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -81,7 +82,10 @@ export default function RootLayout({
           Перейти к содержимому
         </a>
         <OrganizationJsonLd />
-        <Providers>{children}</Providers>
+        <Providers>
+          <CustomCursor />
+          {children}
+        </Providers>
       </body>
     </html>
   );
