@@ -59,80 +59,55 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-heading text-3xl tracking-[0.1em] uppercase font-semibold text-primary hover:opacity-80 transition-opacity"
+            className="flex flex-col hover:opacity-80 transition-opacity"
           >
-            ARKA
+            <span className="font-heading text-3xl tracking-[0.1em] uppercase font-semibold text-foreground">
+              АРКА
+            </span>
+            <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">
+              дизайн-студия
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav aria-label="Основная навигация" className="hidden lg:flex items-center gap-1">
             {mainNavigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "px-4 py-2 text-sm tracking-wide uppercase",
-                  "text-muted-foreground hover:text-foreground",
-                  "transition-colors duration-300",
-                  "relative after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2",
-                  "after:h-px after:w-0 after:bg-foreground",
-                  "after:transition-all after:duration-300",
-                  "hover:after:w-full"
+              <div key={item.label} className="relative group">
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "px-4 py-2 text-sm tracking-wide uppercase",
+                    "text-muted-foreground hover:text-foreground",
+                    "transition-colors duration-300",
+                    "relative after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2",
+                    "after:h-px after:w-0 after:bg-foreground",
+                    "after:transition-all after:duration-300",
+                    "hover:after:w-full"
+                  )}
+                >
+                  {item.label}
+                </Link>
+                {item.children && (
+                  <div className="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <div className="bg-background border border-border flex flex-col min-w-[280px] shadow-lg py-2">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          className="px-6 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors uppercase tracking-wide"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 )}
-              >
-                {item.label}
-              </Link>
+              </div>
             ))}
           </nav>
 
           {/* Right side actions */}
           <div className="flex items-center gap-2">
-            {/* CTA Button — desktop only */}
-            <Button
-              asChild
-              size="sm"
-              className="hidden md:inline-flex"
-            >
-              <Link href="/contact">
-                <Phone className="size-4 mr-2" />
-                Консультация
-              </Link>
-            </Button>
-
-            {/* Theme toggle */}
-            {mounted && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleTheme}
-                className="text-muted-foreground hover:text-foreground"
-                aria-label={theme === "dark" ? "Включить светлую тему" : "Включить тёмную тему"}
-              >
-                <AnimatePresence mode="wait">
-                  {theme === "dark" ? (
-                    <motion.div
-                      key="sun"
-                      initial={{ opacity: 0, rotate: -90 }}
-                      animate={{ opacity: 1, rotate: 0 }}
-                      exit={{ opacity: 0, rotate: 90 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Sun className="size-5" />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="moon"
-                      initial={{ opacity: 0, rotate: 90 }}
-                      animate={{ opacity: 1, rotate: 0 }}
-                      exit={{ opacity: 0, rotate: -90 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Moon className="size-5" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </Button>
-            )}
 
             {/* Mobile menu */}
             <Sheet>
@@ -151,50 +126,52 @@ export function Header() {
                 className="w-full sm:max-w-md border-l border-border"
               >
                 <SheetHeader>
-                  <SheetTitle className="font-heading text-3xl tracking-[0.1em] uppercase text-primary">
-                    ARKA
+                  <SheetTitle className="flex flex-col items-center justify-center">
+                    <span className="font-heading text-3xl tracking-[0.1em] uppercase text-foreground">
+                      АРКА
+                    </span>
+                    <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">
+                      дизайн-студия
+                    </span>
                   </SheetTitle>
                 </SheetHeader>
                 <nav aria-label="Мобильная навигация" className="flex flex-col gap-1 mt-8 px-4">
                   {mainNavigation.map((item, index) => (
-                    <motion.div
-                      key={item.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{
-                        delay: index * 0.08,
-                        duration: 0.4,
-                        ease: [0.25, 0.1, 0.25, 1],
-                      }}
-                    >
-                      <SheetClose asChild>
-                        <Link
-                          href={item.href}
-                          className={cn(
-                            "block py-3 px-4 text-lg tracking-wide",
-                            "text-muted-foreground hover:text-foreground",
-                            "transition-colors duration-300",
-                            "border-b border-border/50"
-                          )}
-                        >
-                          {item.label}
-                        </Link>
-                      </SheetClose>
-                    </motion.div>
+                    <div key={item.label}>
+                      {item.children ? (
+                        <div className="py-3 px-4 text-lg tracking-wide text-foreground border-b border-border/50">
+                          <span className="opacity-50">{item.label}</span>
+                          <div className="flex flex-col gap-2 mt-3 ml-4">
+                            {item.children.map((child) => (
+                              <SheetClose asChild key={child.label}>
+                                <Link
+                                  href={child.href}
+                                  className="text-base text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                  {child.label}
+                                </Link>
+                              </SheetClose>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <SheetClose asChild>
+                          <Link
+                            href={item.href}
+                            className={cn(
+                              "block py-3 px-4 text-lg tracking-wide",
+                              "text-muted-foreground hover:text-foreground",
+                              "transition-colors duration-300",
+                              "border-b border-border/50"
+                            )}
+                          >
+                            {item.label}
+                          </Link>
+                        </SheetClose>
+                      )}
+                    </div>
                   ))}
                 </nav>
-
-                {/* Mobile CTA */}
-                <div className="mt-8 px-4">
-                  <SheetClose asChild>
-                    <Button asChild variant="outline" className="w-full">
-                      <Link href="/contact">
-                        <Phone className="size-4 mr-2" />
-                        Консультация
-                      </Link>
-                    </Button>
-                  </SheetClose>
-                </div>
               </SheetContent>
             </Sheet>
           </div>

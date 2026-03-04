@@ -6,13 +6,18 @@ export interface NavItem {
 
 // B2C main navigation
 export const mainNavigation: NavItem[] = [
-  { label: 'Главная', href: '/' },
-  { label: 'Портфолио', href: '/portfolio' },
-  { label: 'Услуги', href: '/services' },
-  { label: 'Пакеты', href: '/pricing' },
-  { label: 'Процесс', href: '/process' },
-  { label: 'О нас', href: '/about' },
-  { label: 'Контакты', href: '/contact' },
+  {
+    label: 'Наши работы',
+    href: '#portfolio',
+    children: [
+      { label: 'Частные интерьеры', href: '#private' },
+      { label: 'Коммерческие пространства', href: '#commercial' },
+      { label: 'Проекты для девелоперов', href: '#developers' },
+    ]
+  },
+  { label: 'Пакеты услуг', href: '#packages' },
+  { label: 'О нас', href: '#about' },
+  { label: 'Контакты', href: '#contacts' },
 ];
 
 // B2B navigation items
