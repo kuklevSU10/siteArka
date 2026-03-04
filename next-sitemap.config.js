@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://interiorstudio.com',
-  generateRobotsTxt: false, // We use Next.js built-in robots.ts
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://arkastudio.com',
+  generateRobotsTxt: true,
   sitemapSize: 7000,
   changefreq: 'weekly',
   priority: 0.7,

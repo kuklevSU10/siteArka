@@ -55,9 +55,9 @@ export function StrictPackages() {
                         <div
                             key={i}
                             className={cn(
-                                "flex flex-col p-8 lg:p-12 border border-transparent bg-muted/10",
+                                "flex flex-col p-8 lg:p-12 border border-border/50 bg-white/50 backdrop-blur-sm rounded-none",
                                 "transition-all duration-300 ease-in-out",
-                                "hover:bg-primary/5 hover:border-primary/20 cursor-default"
+                                "hover:bg-primary/5 hover:border-primary/30 hover:shadow-lg cursor-default"
                             )}
                         >
                             <h3 className="font-heading text-2xl uppercase tracking-wide mb-4 text-foreground">

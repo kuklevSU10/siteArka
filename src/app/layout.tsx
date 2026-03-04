@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { Providers } from "@/providers";
 import { siteConfig } from "@/config/site";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
@@ -13,18 +13,17 @@ const cormorantGaramond = Cormorant_Garamond({
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const manrope = Manrope({
   variable: "--font-body",
-  subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin", "cyrillic"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "INTERIOR STUDIO | Дизайн интерьера с инженерной точностью",
-    template: "%s | INTERIOR STUDIO",
+    default: "АРКА | Дизайн-студия интерьера",
+    template: "%s | АРКА",
   },
   description: siteConfig.description,
   openGraph: {
@@ -32,20 +31,20 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "INTERIOR STUDIO | Дизайн интерьера с инженерной точностью",
+    title: "АРКА | Дизайн-студия интерьера",
     description: siteConfig.description,
     images: [
       {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "INTERIOR STUDIO — студия дизайна интерьера в Москве",
+        alt: "АРКА — студия дизайна интерьера в Москве",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "INTERIOR STUDIO | Дизайн интерьера с инженерной точностью",
+    title: "АРКА | Дизайн-студия интерьера",
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
@@ -73,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <body
-        className={`${cormorantGaramond.variable} ${dmSans.variable} antialiased`}
+        className={`${cormorantGaramond.variable} ${manrope.variable} antialiased`}
       >
         <a
           href="#main-content"

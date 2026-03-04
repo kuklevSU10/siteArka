@@ -9,11 +9,11 @@ export function ContactSection() {
                             Контакты
                         </h2>
                         <div className="flex flex-col gap-8 text-xl md:text-2xl font-light text-foreground">
-                            <a href="tel:+7XXXXXXXXXX" className="hover:text-primary transition-colors">
-                                +7 (XXX) XXX-XX-XX
+                            <a href="tel:+74951234567" className="hover:text-primary transition-colors">
+                                +7 (495) 123-45-67
                             </a>
-                            <a href="mailto:hello@arkastudio.test" className="hover:text-primary transition-colors block">
-                                hello@arkastudio.test
+                            <a href="mailto:info@arkastudio.ru" className="hover:text-primary transition-colors block mt-2">
+                                info@arkastudio.ru
                             </a>
                         </div>
                     </div>

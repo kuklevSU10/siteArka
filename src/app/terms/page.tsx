@@ -7,7 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Пользовательское соглашение",
   description:
-    "Пользовательское соглашение INTERIOR STUDIO. Условия использования сайта и предоставления услуг дизайна интерьера.",
+    "Пользовательское соглашение АРКА. Условия использования сайта и предоставления услуг дизайна интерьера.",
   alternates: {
     canonical: "/terms",
   },
@@ -26,7 +26,7 @@ export default function TermsPage() {
       <main id="main-content" className="min-h-screen">
         <PageHeader
           title="Пользовательское соглашение"
-          description="Условия использования сайта INTERIOR STUDIO"
+          description="Условия использования сайта АРКА"
         />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
@@ -38,7 +38,7 @@ export default function TermsPage() {
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-3">
                 Настоящее Пользовательское соглашение (далее — Соглашение) регулирует
-                отношения между INTERIOR STUDIO (далее — Студия, Администрация сайта)
+                отношения между АРКА (далее — Студия, Администрация сайта)
                 и пользователем сайта (далее — Пользователь).
               </p>
               <p className="text-muted-foreground leading-relaxed mb-3">
@@ -224,28 +224,10 @@ export default function TermsPage() {
               </p>
               <ul className="list-none space-y-2 text-muted-foreground">
                 <li>
-                  <strong className="text-foreground">Компания:</strong> INTERIOR STUDIO
+                  <strong className="text-foreground">Команда:</strong> АРКА
                 </li>
                 <li>
                   <strong className="text-foreground">Город:</strong> Москва, Россия
-                </li>
-                <li>
-                  <strong className="text-foreground">Телефон:</strong>{" "}
-                  <a
-                    href="tel:+7XXXXXXXXXX"
-                    className="underline underline-offset-2 hover:text-foreground transition-colors"
-                  >
-                    +7 (XXX) XXX-XX-XX
-                  </a>
-                </li>
-                <li>
-                  <strong className="text-foreground">Страница контактов:</strong>{" "}
-                  <a
-                    href="/contact"
-                    className="underline underline-offset-2 hover:text-foreground transition-colors"
-                  >
-                    /contact
-                  </a>
                 </li>
               </ul>
             </section>

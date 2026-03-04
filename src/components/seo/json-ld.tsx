@@ -24,8 +24,8 @@ export function OrganizationJsonLd() {
     },
     sameAs: [
       siteConfig.links.instagram,
-      siteConfig.links.pinterest,
-      siteConfig.links.linkedin,
+      siteConfig.links.telegram,
+      siteConfig.links.whatsapp,
     ],
     priceRange: "$$",
     openingHoursSpecification: {

@@ -74,7 +74,7 @@ export interface SiteConfig {
   ogImage: string;
   links: {
     instagram: string;
-    pinterest: string;
-    linkedin: string;
+    telegram: string;
+    whatsapp: string;
   };
 }

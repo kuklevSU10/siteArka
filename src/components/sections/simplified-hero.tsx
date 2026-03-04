@@ -17,7 +17,7 @@ export function SimplifiedHero() {
           Prompt says: "Светлая подача ... Без затемняющих градиентов". 
           Let's use a solid text color that contrasts well. */}
 
-            <div className="relative z-10 flex flex-col items-center justify-center text-center mix-blend-difference text-white px-4">
+            <div className="relative z-10 flex flex-col items-center justify-center text-center text-foreground px-4 drop-shadow-md">
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

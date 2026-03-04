@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'INTERIOR STUDIO',
-    short_name: 'Interior',
+    name: 'АРКА',
+    short_name: 'АРКА',
     description: 'Студия дизайна интерьера в Москве. Проектируем пространства с инженерной точностью.',
     start_url: '/',
     display: 'standalone',

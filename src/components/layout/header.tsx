@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils"
 import { mainNavigation } from "@/config/navigation"
 import { fadeIn, defaultTransition } from "@/lib/animations"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import {
   Sheet,
   SheetTrigger,
@@ -108,7 +109,7 @@ export function Header() {
 
           {/* Right side actions */}
           <div className="flex items-center gap-2">
-
+            <ThemeToggle />
             {/* Mobile menu */}
             <Sheet>
               <SheetTrigger asChild>

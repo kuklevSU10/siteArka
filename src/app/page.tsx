@@ -6,27 +6,10 @@ import { ProjectCategory } from "@/components/sections/project-category";
 import { StrictPackages } from "@/components/sections/strict-packages";
 import { AboutSection } from "@/components/sections/about-section";
 import { ContactSection } from "@/components/sections/contact-section";
-import { featuredProjects } from "@/data/projects";
-
-export const metadata: Metadata = {
-  title: "АРКА — дизайн-студия",
-  description: "Дизайн-студия АРКА. Частные интерьеры, коммерческие пространства, проекты для девелоперов.",
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: "АРКА — дизайн-студия",
-    description: "Проектные решения для жилых и коммерческих объектов.",
-    images: ["/images/arka-hero.jpg"],
-  },
-};
-
-// Getting some placeholder images from the existing data if available
-const privateImages = featuredProjects.slice(0, 3).map(p => p.coverImage);
-const commercialImages = featuredProjects.slice(3, 6).map(p => p.coverImage);
-// fallback for missing images
-while (commercialImages.length < 3) commercialImages.push("/images/photo_main.jpg");
-const developerImages = Array(3).fill("/images/photo_main.jpg");
+// Using actual distinct photos for each category
+const privateImages = ["/images/photo_1.jpg", "/images/photo_2.jpg", "/images/photo_3.jpg"];
+const commercialImages = ["/images/photo_4.jpg", "/images/photo_5.jpg", "/images/photo_6.jpg"];
+const developerImages = ["/images/photo_7.jpg", "/images/photo_8.jpg", "/images/photo_9.jpg"];
 
 export default function Home() {
   return (

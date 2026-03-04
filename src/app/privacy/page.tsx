@@ -7,7 +7,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Политика конфиденциальности",
   description:
-    "Политика конфиденциальности INTERIOR STUDIO. Узнайте, как мы обрабатываем и защищаем ваши персональные данные в соответствии с 152-ФЗ.",
+    "Политика конфиденциальности АРКА. Узнайте, как мы обрабатываем и защищаем ваши персональные данные в соответствии с 152-ФЗ.",
   alternates: {
     canonical: "/privacy",
   },
@@ -36,10 +36,10 @@ export default function PrivacyPage() {
               <h2 className="font-heading text-2xl font-bold text-foreground mb-4">
                 1. Общие положения
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                Настоящая Политика конфиденциальности (далее — Политика) определяет порядок
-                обработки и защиты персональных данных пользователей сайта INTERIOR STUDIO
-                (далее — Оператор, Студия).
+              <p className="mb-4">
+                Настоящая Политика конфиденциальности описывает принципы
+                обработки и защиты персональных данных пользователей сайта АРКА
+                (далее — Сайт).
               </p>
               <p className="text-muted-foreground leading-relaxed mb-3">
                 Политика разработана в соответствии с Федеральным законом от 27.07.2006
@@ -225,9 +225,9 @@ export default function PrivacyPage() {
                 или обработки ваших персональных данных, свяжитесь с нами:
               </p>
               <ul className="list-none space-y-2 text-muted-foreground">
-                <li>
-                  <strong className="text-foreground">Компания:</strong> INTERIOR STUDIO
-                </li>
+                <p>
+                  <strong className="text-foreground">Команда:</strong> АРКА
+                </p>
                 <li>
                   <strong className="text-foreground">Город:</strong> Москва, Россия
                 </li>
