@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://arkastudio.com
-
-# Sitemaps
-Sitemap: https://arkastudio.com/sitemap.xml
