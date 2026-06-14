@@ -209,8 +209,10 @@ h3 {
 .hero-media .hero-video {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  /* shift the frame right so the arch in the video sits centred behind the wordmark */
+  object-position: 6% center;
+  transform: scale(1.06);
   filter: saturate(1.18) contrast(1.05);
 }
 .hero-media::after {
