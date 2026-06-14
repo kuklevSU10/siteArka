@@ -215,8 +215,14 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(248, 246, 242, 0.94) 0%, rgba(248, 246, 242, 0.6) 48%, rgba(248, 246, 242, 0.52) 100%);
+  /* legibility veil: brightens the centre behind the wordmark, keeps the video vivid at the edges */
+  background: radial-gradient(125% 95% at 50% 42%, rgba(248, 246, 242, 0.74) 0%, rgba(248, 246, 242, 0.5) 38%, rgba(248, 246, 242, 0.18) 72%, rgba(248, 246, 242, 0.06) 100%);
+  opacity: 1;
+  transition: opacity 1100ms var(--ease);
 }
+/* JS intro sequence: video plays clean first, then veil + content resolve */
+.hero.is-seq .hero-media::after { opacity: 0; }
+.hero.is-seq.is-revealed .hero-media::after { opacity: 1; }
 .hero-index {
   position: absolute;
   top: calc(var(--header-height) + 1.2rem);
@@ -236,7 +242,11 @@ h3 {
   display: grid;
   justify-items: center;
   max-width: min(94vw, 62rem);
+  opacity: 1;
+  transition: opacity 900ms var(--ease), transform 900ms var(--ease);
 }
+.hero.is-seq .hero-copy { opacity: 0; transform: translateY(1rem); }
+.hero.is-seq.is-revealed .hero-copy { opacity: 1; transform: none; }
 .hero-copy .hero-kicker { margin: 0 0 1.4rem; }
 .hero-wordmark { margin: 0; line-height: 0; }
 .hero-wordmark img {

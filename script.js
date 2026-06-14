@@ -150,3 +150,18 @@ if (form) {
     }
   });
 }
+
+// Hero intro: let the sketch-to-interior video play clean for a beat,
+// then resolve the legibility veil and the wordmark over it.
+const hero = document.querySelector(".hero");
+
+if (hero) {
+  const reduceMotionHero = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  hero.classList.add("is-seq");
+
+  if (reduceMotionHero) {
+    hero.classList.add("is-revealed");
+  } else {
+    window.setTimeout(() => hero.classList.add("is-revealed"), 2600);
+  }
+}
