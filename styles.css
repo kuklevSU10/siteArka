@@ -759,6 +759,63 @@ h1 {
   color: var(--navy);
 }
 
+.services-section {
+  padding: clamp(6rem, 10vw, 11rem) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 253, 250, 0.5);
+}
+.services-head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.services-eyebrow {
+  margin: 0 0 1rem;
+  color: var(--burgundy);
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+.services-head h2 {
+  margin: 0;
+  font-size: clamp(2.4rem, 4.5vw, 4.4rem);
+  line-height: 0.95;
+  font-weight: 500;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 2.5vw, 2rem);
+}
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: clamp(1.5rem, 2.5vw, 2.2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+.service-card h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 1.9rem);
+  font-weight: 500;
+}
+.service-card p {
+  margin: 0;
+  color: rgba(17, 17, 17, 0.66);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+.service-price {
+  margin-top: auto;
+  padding-top: 0.7rem;
+  color: var(--navy) !important;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+}
+.contact-email { color: var(--gold); }
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
 .process-section {
   padding: clamp(6rem, 10vw, 11rem) 0;
   background: var(--paper);
