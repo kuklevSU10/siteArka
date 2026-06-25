@@ -226,6 +226,22 @@
     if (close) close.addEventListener("click", closeBook);
   }
 
+  function wireLazy(flip) {
+    var pageList = Array.prototype.slice.call(mount.querySelectorAll(".book-page"));
+    var imgs = Array.prototype.slice.call(mount.querySelectorAll(".book-img"));
+    function loadAround(centerIndex) {
+      imgs.forEach(function (img) {
+        var idx = pageList.indexOf(img.closest(".book-page"));
+        if (idx !== -1 && Math.abs(idx - centerIndex) <= 4 && img.dataset.src && !img.getAttribute("src")) {
+          img.src = img.dataset.src;
+          if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+        }
+      });
+    }
+    loadAround(0);
+    flip.on("flip", function (e) { loadAround(e.data); });
+  }
+
   var closedEl = document.querySelector(".book-closed");
   if (closedEl) {
     closedEl.addEventListener("click", openBook);
@@ -236,6 +252,6 @@
 
   window.ARKA_BOOK = {
     mount: mount, stage: stage, initFlip: initFlip, getFlip: function () { return pageFlip; },
-    onFlipReady: function (flip) { wireNav(flip); }
+    onFlipReady: function (flip) { wireNav(flip); wireLazy(flip); }
   };
 })();
