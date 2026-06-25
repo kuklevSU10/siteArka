@@ -129,5 +129,49 @@
 
   mount.innerHTML = buildPagesHTML(SRC);
 
-  window.ARKA_BOOK = { mount: mount, stage: stage };
+  var Flip = (window.St && window.St.PageFlip) || window.PageFlip || null;
+  var pageFlip = null;
+
+  function initFlip() {
+    if (pageFlip || !Flip) return;
+    // спрятать закрытую книгу из потока и раскрыть mount ДО измерения ширины
+    var closed = document.querySelector(".book-closed");
+    if (closed) closed.classList.add("is-gone");
+    stage.classList.add("is-open");
+    mount.style.display = "block";
+
+    pageFlip = new Flip(mount, {
+      width: 460, height: 530,
+      size: "stretch",
+      minWidth: 280, maxWidth: 720,
+      minHeight: 320, maxHeight: 820,
+      maxShadowOpacity: 0.22,
+      drawShadow: true,
+      flippingTime: 720,
+      usePortrait: true,
+      showCover: true,
+      mobileScrollSupport: false,
+      useMouseEvents: true,
+      clickEventForward: false,
+      disableFlipByClick: true,
+      showPageCorners: true
+    });
+    pageFlip.loadFromHTML(mount.querySelectorAll(".book-page"));
+
+    var controls = document.querySelector(".book-controls");
+    if (controls) controls.hidden = false;
+    if (window.ARKA_BOOK.onFlipReady) window.ARKA_BOOK.onFlipReady(pageFlip);
+  }
+
+  function openBook() { initFlip(); }
+
+  var closedEl = document.querySelector(".book-closed");
+  if (closedEl) {
+    closedEl.addEventListener("click", openBook);
+    closedEl.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openBook(); }
+    });
+  }
+
+  window.ARKA_BOOK = { mount: mount, stage: stage, initFlip: initFlip, getFlip: function () { return pageFlip; } };
 })();

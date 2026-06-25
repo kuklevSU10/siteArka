@@ -1705,3 +1705,12 @@ textarea:focus-visible {
 .book-toc i { margin-left: auto; color: var(--muted); font-style: italic; font-size: 0.78rem; }
 .book-intro-k { font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--muted); }
 .book-intro { font-family: var(--serif); font-size: 1.1rem; line-height: 1.4; max-width: 22ch; }
+
+/* ----- book open state + controls ----- */
+.book-closed.is-gone { opacity: 0; transform: rotateX(2deg) scale(0.96); pointer-events: none; position: absolute; }
+.book-stage.is-open .book-mount { display: block; }
+.book-controls { position: absolute; bottom: 0.6rem; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.8rem; }
+.book-controls button { background: none; border: 0; cursor: pointer; font-family: var(--sans); color: var(--ink); }
+.book-prev, .book-next { font-size: 1.6rem; line-height: 1; color: var(--gold); padding: 0 0.4rem; }
+.book-indicator { font-size: 0.7rem; letter-spacing: 0.16em; color: var(--muted); min-width: 5ch; text-align: center; }
+.book-close { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
