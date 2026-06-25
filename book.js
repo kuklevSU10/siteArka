@@ -142,7 +142,7 @@
       minHeight: 320, maxHeight: 820,
       maxShadowOpacity: 0.22,
       drawShadow: true,
-      flippingTime: 720,
+      flippingTime: (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) ? 1 : 720,
       usePortrait: true,
       showCover: true,
       mobileScrollSupport: false,

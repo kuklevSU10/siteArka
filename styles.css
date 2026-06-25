@@ -1716,3 +1716,20 @@ textarea:focus-visible {
 .book-close { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 .book-sound { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 .book-sound.is-on { color: var(--gold); }
+
+/* ----- book reduced-motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  .book-closed { transform: none; transition: opacity 200ms linear; }
+  .book-closed:hover { transform: none; }
+  .book-closed.is-gone { transform: none; }
+}
+
+/* ----- book mobile ----- */
+@media (max-width: 767px) {
+  .works-section { padding: clamp(3rem, 8vw, 5rem) 1rem; }
+  .book-stage { min-height: 78vh; padding: 0.6rem; perspective: 1400px; }
+  .book-closed { width: min(78vw, 320px); }
+  .book-band { font-size: 0.78rem; }
+  .book-controls { gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+  .book-ghost { font-size: clamp(5rem, 26vw, 9rem); }
+}
