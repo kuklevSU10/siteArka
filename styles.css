@@ -1562,7 +1562,8 @@ h1 {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+.book-closed:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 3px;
 }
@@ -1687,7 +1688,8 @@ textarea:focus-visible {
 .book-img { width: 100%; height: 100%; object-fit: cover; display: block; background: #ece7df; }
 .book-cap { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
 .book-hero-page .book-arch { flex: 1; margin: 0; min-height: 0; }
-.book-arch.arch-top { border-radius: 50% 50% 0 0 / 22% 22% 0 0; overflow: hidden; }
+.book-arch.arch-top { position: relative; }
+.book-arch.arch-top .book-img { border-radius: 50% 50% 0 0 / 22% 22% 0 0; }
 .book-arch.arch-top-frame::after { content: ""; position: absolute; inset: -7px -7px 0 -7px; border: 1px solid var(--gold); border-bottom: 0; border-radius: 50% 50% 0 0 / 22% 22% 0 0; pointer-events: none; }
 .book-tall, .book-gal-big { flex: 1; margin: 0; min-height: 0; position: relative; }
 .book-gal-sm { flex: 1; margin: 0 0 0.6rem; min-height: 0; position: relative; }
