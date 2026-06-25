@@ -242,6 +242,36 @@
     flip.on("flip", function (e) { loadAround(e.data); });
   }
 
+  function wireSound(flip) {
+    var btn = document.querySelector(".book-sound");
+    if (!btn) return;
+    var on = false;
+    try { on = localStorage.getItem("arka-book-sound") === "1"; } catch (e) {}
+    var audio = null;
+    function ensureAudio() {
+      if (audio) return audio;
+      audio = new Audio("assets/sound/page-turn.mp3");
+      audio.volume = 0.4;
+      return audio;
+    }
+    function reflect() {
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.classList.toggle("is-on", on);
+    }
+    reflect();
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      on = !on;
+      try { localStorage.setItem("arka-book-sound", on ? "1" : "0"); } catch (e2) {}
+      reflect();
+    });
+    flip.on("flip", function () {
+      if (!on) return;
+      var a = ensureAudio();
+      try { a.currentTime = 0; a.play().catch(function () {}); } catch (e3) {}
+    });
+  }
+
   var closedEl = document.querySelector(".book-closed");
   if (closedEl) {
     closedEl.addEventListener("click", openBook);
@@ -252,6 +282,6 @@
 
   window.ARKA_BOOK = {
     mount: mount, stage: stage, initFlip: initFlip, getFlip: function () { return pageFlip; },
-    onFlipReady: function (flip) { wireNav(flip); wireLazy(flip); }
+    onFlipReady: function (flip) { wireNav(flip); wireLazy(flip); wireSound(flip); }
   };
 })();

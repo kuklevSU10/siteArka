@@ -1714,3 +1714,5 @@ textarea:focus-visible {
 .book-prev, .book-next { font-size: 1.6rem; line-height: 1; color: var(--gold); padding: 0 0.4rem; }
 .book-indicator { font-size: 0.7rem; letter-spacing: 0.16em; color: var(--muted); min-width: 5ch; text-align: center; }
 .book-close { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.book-sound { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.book-sound.is-on { color: var(--gold); }
