@@ -1,0 +1,13 @@
+{
+  "name": "sitearka",
+  "private": true,
+  "description": "ARKA studio static site. Catalog book uses vendored StPageFlip (vendor/page-flip).",
+  "scripts": {
+    "gate": "node test-site.js",
+    "test:data": "node tools/test-book-data.js",
+    "optimize": "node tools/optimize-interiors.js"
+  },
+  "devDependencies": {
+    "page-flip": "^2.0.7"
+  }
+}
