@@ -8,3 +8,5 @@ test-results/
 .playwright-cli/
 *.log
 .DS_Store
+_ref/
+assets/interiors/_src/
