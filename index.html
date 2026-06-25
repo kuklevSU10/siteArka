@@ -33,6 +33,7 @@
         <nav class="site-nav" aria-label="Главная навигация">
           <a href="#expertise">Для дома</a>
           <a href="#expertise">Для бизнеса</a>
+          <a href="#works">Работы</a>
           <a href="#about">О нас</a>
           <a href="#contact">Контакт</a>
         </nav>
@@ -77,6 +78,46 @@
             <a class="button button-primary" href="#contact">Получить портфолио проектов</a>
           </div>
         </div>
+      </section>
+
+      <section id="works" class="works-section" aria-labelledby="works-title">
+        <div class="works-head" data-reveal>
+          <p class="works-eyebrow">Каталог</p>
+          <h2 id="works-title">Избранные интерьеры</h2>
+          <p class="works-lead">Три проекта в трёх палитрах. Нажмите на книгу, чтобы открыть и листать.</p>
+        </div>
+
+        <div class="book-stage">
+          <div class="book-closed" role="button" tabindex="0" aria-label="Открыть каталог работ">
+            <span class="book-edge" aria-hidden="true"></span>
+            <span class="book-cover">
+              <img class="book-cover-mark" src="assets/arka-logo.svg" alt="АРКА"
+                   onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'book-cover-word',textContent:'АРКА'}))">
+              <span class="book-cover-sub">Избранные интерьеры</span>
+              <span class="book-cover-line" aria-hidden="true"></span>
+              <span class="book-cover-foot">Каталог</span>
+            </span>
+            <span class="book-band" aria-hidden="true"><span>Пространства, которые переживут тренды</span></span>
+            <span class="book-open-hint">нажмите, чтобы открыть</span>
+          </div>
+
+          <div class="book-mount" aria-hidden="true"></div>
+
+          <div class="book-controls" hidden>
+            <button class="book-prev" type="button" aria-label="Предыдущая страница">&#8249;</button>
+            <span class="book-indicator" aria-live="polite">01 / 01</span>
+            <button class="book-next" type="button" aria-label="Следующая страница">&#8250;</button>
+            <button class="book-close" type="button" aria-label="Закрыть книгу">Закрыть</button>
+          </div>
+        </div>
+
+        <noscript>
+          <div class="works-fallback">
+            <img src="assets/interiors/arka-int01-studio-kitchen-living-1254.webp" alt="Studio. Кухня-гостиная" width="1254" height="1254">
+            <img src="assets/interiors/arka-int02-classic-bedroom-1254.webp" alt="Classic. Спальня" width="1254" height="1254">
+            <img src="assets/interiors/arka-int03-burgundy-kitchen-1254.webp" alt="Burgundy. Кухня" width="1254" height="1254">
+          </div>
+        </noscript>
       </section>
 
       <section id="about" class="arch-section" aria-labelledby="arch-title">
@@ -146,6 +187,9 @@
       <a href="#top">Наверх</a>
     </footer>
 
+    <script src="vendor/page-flip/page-flip.browser.js" defer></script>
+    <script src="book-data.js" defer></script>
+    <script src="book.js" defer></script>
     <script src="script.js" defer></script>
   </body>
 </html>
