@@ -136,10 +136,10 @@
     if (pageFlip || !Flip) return;
     // mount всегда видим (display:block), измеряется на полную ширину
     pageFlip = new Flip(mount, {
-      width: 460, height: 530,
+      width: 560, height: 720,
       size: "stretch",
-      minWidth: 280, maxWidth: 720,
-      minHeight: 320, maxHeight: 820,
+      minWidth: 300, maxWidth: 680,
+      minHeight: 400, maxHeight: 880,
       maxShadowOpacity: 0.22,
       drawShadow: true,
       flippingTime: (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) ? 1 : 720,

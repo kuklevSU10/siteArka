@@ -1606,14 +1606,14 @@ textarea:focus-visible,
 .book-stage {
   position: relative;
   display: flex; align-items: center; justify-content: center;
-  min-height: min(86vh, 760px);
-  padding: clamp(1rem, 4vw, 3rem);
+  min-height: min(92vh, 940px);
+  padding: clamp(0.6rem, 2vw, 1.4rem);
   background: radial-gradient(120% 90% at 50% 30%, #f3f1ec 0%, var(--book-stage) 70%);
   border-radius: var(--radius);
   perspective: 2200px;
 }
 
-.book-mount { position: relative; width: 100%; max-width: 980px; display: block; margin: 0 auto; }
+.book-mount { position: relative; width: 100%; max-width: min(1320px, 95vw); display: block; margin: 0 auto; }
 
 .book-hint {
   position: absolute; left: 50%; bottom: 2.6rem; transform: translateX(-50%);
