@@ -1644,14 +1644,6 @@ textarea:focus-visible,
 .book-cover-sub { font-family: var(--serif); font-style: italic; font-size: 1.05rem; opacity: 0.92; }
 .book-cover-line { width: 56px; height: 1px; background: var(--gold); opacity: 0.85; }
 .book-cover-foot { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.8; }
-.book-band {
-  position: absolute; left: -3%; right: -3%; bottom: 16%;
-  padding: 0.55rem 0; text-align: center;
-  background: #f4efe7; color: var(--ink);
-  box-shadow: 0 6px 14px rgba(28,18,12,0.18);
-  transition: transform 500ms var(--ease), opacity 400ms var(--ease);
-}
-.book-band span { font-family: var(--serif); font-style: italic; font-size: 0.9rem; letter-spacing: 0.01em; }
 .book-open-hint {
   position: absolute; left: 0; right: 0; bottom: -2.2rem; text-align: center;
   font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
@@ -1731,7 +1723,6 @@ textarea:focus-visible,
   .works-section { padding: clamp(3rem, 8vw, 5rem) 1rem; }
   .book-stage { min-height: 78vh; padding: 0.6rem; perspective: 1400px; }
   .book-closed { width: min(78vw, 320px); }
-  .book-band { font-size: 0.78rem; }
   .book-controls { gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
   .book-ghost { font-size: clamp(5rem, 26vw, 9rem); }
 }

@@ -97,7 +97,7 @@
 
     // Финал (разворот)
     html += page("book-page-paper", "", runner("АРКА \\\\ Каталог", "") +
-      '<p class="book-quote">Пространства, которые переживут тренды.</p>' + folio(nextFolio()));
+      '<p class="book-quote">Форма, свет, материал.</p>' + folio(nextFolio()));
     html += page("book-page-paper book-cta-page", "", runner("", "Контакт") +
       '<div class="book-cta"><p>Расскажите о пространстве, которое хотите создать.</p>' +
       '<a class="button button-primary" href="#contact">Обсудить проект</a></div>' + folio(nextFolio()));
