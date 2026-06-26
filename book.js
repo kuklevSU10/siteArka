@@ -134,7 +134,7 @@
 
   function initFlip() {
     if (pageFlip || !Flip) return;
-    // is-open уже выставлен в openBook, mount измеряется на полную ширину
+    // mount всегда видим (display:block), измеряется на полную ширину
     pageFlip = new Flip(mount, {
       width: 460, height: 530,
       size: "stretch",
@@ -158,25 +158,6 @@
     if (window.ARKA_BOOK.onFlipReady) window.ARKA_BOOK.onFlipReady(pageFlip);
   }
 
-  function openBook() {
-    var closed = document.querySelector(".book-closed");
-    if (closed) closed.classList.add("is-gone");
-    stage.classList.add("is-open");
-    if (!pageFlip) initFlip();
-    else {
-      var controls = document.querySelector(".book-controls");
-      if (controls) controls.hidden = false;
-    }
-  }
-
-  function closeBook() {
-    stage.classList.remove("is-open");
-    var closed = document.querySelector(".book-closed");
-    if (closed) closed.classList.remove("is-gone");
-    var controls = document.querySelector(".book-controls");
-    if (controls) controls.hidden = true;
-  }
-
   function pad2(n) { return ("0" + n).slice(-2); }
 
   function wireNav(flip) {
@@ -184,7 +165,7 @@
     var indicator = document.querySelector(".book-indicator");
     var prev = document.querySelector(".book-prev");
     var next = document.querySelector(".book-next");
-    var close = document.querySelector(".book-close");
+    var hint = document.querySelector(".book-hint");
 
     function refresh() {
       var i = flip.getCurrentPageIndex() + 1;
@@ -192,6 +173,8 @@
     }
     flip.on("flip", refresh);
     refresh();
+
+    if (hint) flip.on("flip", function () { hint.classList.add("is-hidden"); });
 
     if (prev) prev.addEventListener("click", function () { flip.flipPrev(); });
     if (next) next.addEventListener("click", function () { flip.flipNext(); });
@@ -204,7 +187,8 @@
     });
 
     document.addEventListener("keydown", function (e) {
-      if (!stage.classList.contains("is-open")) return;
+      var r = stage.getBoundingClientRect();
+      if (r.top >= window.innerHeight || r.bottom <= 0) return;
       if (e.key === "ArrowLeft") flip.flipPrev();
       if (e.key === "ArrowRight") flip.flipNext();
     });
@@ -222,8 +206,6 @@
         if (openerIndex[k] != null) flip.turnToPage(openerIndex[k]);
       });
     });
-
-    if (close) close.addEventListener("click", closeBook);
   }
 
   function wireLazy(flip) {
@@ -272,16 +254,11 @@
     });
   }
 
-  var closedEl = document.querySelector(".book-closed");
-  if (closedEl) {
-    closedEl.addEventListener("click", openBook);
-    closedEl.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openBook(); }
-    });
-  }
-
   window.ARKA_BOOK = {
     mount: mount, stage: stage, initFlip: initFlip, getFlip: function () { return pageFlip; },
     onFlipReady: function (flip) { wireNav(flip); wireLazy(flip); wireSound(flip); }
   };
+
+  // книга показывается сразу, синхронно после сборки (без вспышки стопки страниц)
+  initFlip();
 })();

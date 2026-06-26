@@ -84,29 +84,17 @@
         <div class="works-head" data-reveal>
           <p class="works-eyebrow">Каталог</p>
           <h2 id="works-title">Избранные интерьеры</h2>
-          <p class="works-lead">Три проекта в трёх палитрах. Нажмите на книгу, чтобы открыть и листать.</p>
+          <p class="works-lead">Три проекта в трёх палитрах. Листайте книгу, чтобы посмотреть работы.</p>
         </div>
 
         <div class="book-stage">
-          <div class="book-closed" role="button" tabindex="0" aria-label="Открыть каталог работ">
-            <span class="book-edge" aria-hidden="true"></span>
-            <span class="book-cover">
-              <img class="book-cover-mark" src="assets/arka-logo.svg" alt="АРКА"
-                   onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'book-cover-word',textContent:'АРКА'}))">
-              <span class="book-cover-sub">Избранные интерьеры</span>
-              <span class="book-cover-line" aria-hidden="true"></span>
-              <span class="book-cover-foot">Каталог</span>
-            </span>
-            <span class="book-open-hint">нажмите, чтобы открыть</span>
-          </div>
-
-          <div class="book-mount" aria-hidden="true"></div>
+          <div class="book-mount"></div>
+          <span class="book-hint" aria-hidden="true">нажмите, чтобы листать</span>
 
           <div class="book-controls" hidden>
             <button class="book-prev" type="button" aria-label="Предыдущая страница">&#8249;</button>
             <span class="book-indicator" aria-live="polite">01 / 01</span>
             <button class="book-next" type="button" aria-label="Следующая страница">&#8250;</button>
-            <button class="book-close" type="button" aria-label="Закрыть книгу">Закрыть</button>
             <button class="book-sound" type="button" aria-pressed="false" aria-label="Звук перелистывания">Звук</button>
           </div>
         </div>

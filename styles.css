@@ -1613,43 +1613,23 @@ textarea:focus-visible,
   perspective: 2200px;
 }
 
-.book-closed {
-  position: relative;
-  width: min(64vw, 420px);
-  aspect-ratio: 1 / 1.15;
-  cursor: pointer;
-  transform: rotateX(8deg) rotateZ(-1deg);
-  transform-style: preserve-3d;
-  transition: transform 600ms var(--ease), opacity 500ms var(--ease);
-  filter: drop-shadow(0 38px 50px rgba(28,18,12,0.30)) drop-shadow(0 10px 16px rgba(28,18,12,0.18));
-}
-.book-closed:hover { transform: rotateX(6deg) rotateZ(-1deg) translateY(-4px); }
-.book-edge {
-  position: absolute; top: 1.4%; bottom: 1.4%; right: -10px; width: 12px;
-  background: repeating-linear-gradient(to bottom, var(--book-page-edge) 0 2px, #e4dccb 2px 3px);
-  border-radius: 0 2px 2px 0; transform: translateZ(-1px);
-}
-.book-cover {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
-  background: var(--book-terracotta);
-  border-radius: 2px 6px 6px 2px;
-  box-shadow: inset 8px 0 18px rgba(0,0,0,0.22), inset 0 0 0 1px rgba(255,255,255,0.06);
-  color: #fbf7f0;
-  text-align: center;
-  padding: 2rem;
-}
-.book-cover-mark { width: auto; height: 2.4rem; filter: brightness(0) invert(1); opacity: 0.96; }
-.book-cover-word { font-family: var(--serif); font-size: 2.4rem; letter-spacing: 0.18em; }
-.book-cover-sub { font-family: var(--serif); font-style: italic; font-size: 1.05rem; opacity: 0.92; }
-.book-cover-line { width: 56px; height: 1px; background: var(--gold); opacity: 0.85; }
-.book-cover-foot { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.32em; text-transform: uppercase; opacity: 0.8; }
-.book-open-hint {
-  position: absolute; left: 0; right: 0; bottom: -2.2rem; text-align: center;
-  font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
-}
+.book-mount { position: relative; width: 100%; max-width: 980px; display: block; margin: 0 auto; }
 
-.book-mount { position: relative; width: 100%; max-width: 980px; display: none; }
+.book-hint {
+  position: absolute; left: 50%; bottom: 2.6rem; transform: translateX(-50%);
+  z-index: 5; pointer-events: none;
+  font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--ink); background: rgba(248, 246, 242, 0.7);
+  padding: 0.4rem 0.95rem; border-radius: 2rem;
+  box-shadow: 0 2px 10px rgba(28,18,12,0.12);
+  animation: book-hint-pulse 2.2s var(--ease) infinite;
+  transition: opacity 450ms var(--ease);
+}
+.book-hint.is-hidden { opacity: 0; }
+@keyframes book-hint-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.85; }
+}
 .works-fallback { display: grid; gap: 1rem; max-width: 720px; margin: 0 auto; }
 .works-fallback img { width: 100%; height: auto; border-radius: var(--radius); }
 
@@ -1700,29 +1680,23 @@ textarea:focus-visible,
 .book-intro-k { font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--muted); }
 .book-intro { font-family: var(--serif); font-size: 1.1rem; line-height: 1.4; max-width: 22ch; }
 
-/* ----- book open state + controls ----- */
-.book-closed.is-gone { opacity: 0; transform: rotateX(2deg) scale(0.96); pointer-events: none; position: absolute; }
-.book-stage.is-open .book-mount { display: block; }
+/* ----- book controls ----- */
 .book-controls { position: absolute; bottom: 0.6rem; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.8rem; }
 .book-controls button { background: none; border: 0; cursor: pointer; font-family: var(--sans); color: var(--ink); }
 .book-prev, .book-next { font-size: 1.6rem; line-height: 1; color: var(--gold); padding: 0 0.4rem; }
 .book-indicator { font-size: 0.7rem; letter-spacing: 0.16em; color: var(--muted); min-width: 5ch; text-align: center; }
-.book-close { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 .book-sound { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 .book-sound.is-on { color: var(--gold); }
 
 /* ----- book reduced-motion ----- */
 @media (prefers-reduced-motion: reduce) {
-  .book-closed { transform: none; transition: opacity 200ms linear; }
-  .book-closed:hover { transform: none; }
-  .book-closed.is-gone { transform: none; }
+  .book-hint { animation: none; opacity: 0.6; }
 }
 
 /* ----- book mobile ----- */
 @media (max-width: 767px) {
   .works-section { padding: clamp(3rem, 8vw, 5rem) 1rem; }
   .book-stage { min-height: 78vh; padding: 0.6rem; perspective: 1400px; }
-  .book-closed { width: min(78vw, 320px); }
   .book-controls { gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
   .book-ghost { font-size: clamp(5rem, 26vw, 9rem); }
 }
