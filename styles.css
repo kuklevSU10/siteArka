@@ -1679,6 +1679,10 @@ textarea:focus-visible,
 .book-toc i { margin-left: auto; color: var(--muted); font-style: italic; font-size: 0.78rem; }
 .book-intro-k { font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--muted); }
 .book-intro { font-family: var(--serif); font-size: 1.1rem; line-height: 1.4; max-width: 22ch; }
+.book-create { list-style: none; margin: auto 0 0; padding: 0; }
+.book-create li { padding: 0.7rem 0; border-top: 1px solid var(--line); }
+.book-create h4 { font-family: var(--serif); font-weight: 500; font-size: clamp(1.25rem, 2.2vw, 1.8rem); margin: 0 0 0.2rem; }
+.book-create p { font-size: 0.8rem; line-height: 1.45; font-weight: 300; color: rgba(17,17,17,0.66); margin: 0; }
 
 /* ----- book controls ----- */
 .book-controls { position: absolute; bottom: 0.6rem; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.8rem; }

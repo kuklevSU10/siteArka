@@ -15,11 +15,12 @@ const allText = `${html}\n${css}\n${js}\n${bookJs}\n${bookData}`;
 [
   "АРКА | Архитектура и дизайн интерьеров",
   "Студия архитектуры и дизайна интерьеров.",
-  "Что мы создаём",
   "info@arkastudio.ru",
 ].forEach((n) => assert(html.includes(n), `Missing required copy: ${n}`));
 
-["#about", "#expertise", "#contact", "#works"].forEach((a) =>
+assert(allText.includes("Что мы создаём"), "Missing 'Что мы создаём' content (moved into book)");
+
+["#about", "#contact", "#works"].forEach((a) =>
   assert(html.includes(`href="${a}"`), `Missing navigation anchor: ${a}`));
 
 assert(html.includes('id="works"'), "Missing #works section");
@@ -27,8 +28,6 @@ assert(html.includes("Работы"), "Missing 'Работы' nav label");
 
 [
   "assets/arka-hero-interior.png",
-  "assets/arka-hospitality.png",
-  "assets/arka-office.png",
 ].forEach((a) => {
   assert(html.includes(a), `HTML does not reference asset: ${a}`);
   assert(fs.existsSync(path.join(root, a)), `Missing asset file: ${a}`);
