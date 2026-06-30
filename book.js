@@ -144,7 +144,7 @@
       drawShadow: true,
       flippingTime: (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) ? 1 : 720,
       usePortrait: true,
-      showCover: true,
+      showCover: false,
       mobileScrollSupport: false,
       useMouseEvents: true,
       clickEventForward: false,
